@@ -8,3 +8,17 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dbt things
+target/
+dbt_packages/
+logs/
+dbt_modules/
+profiles/.user.yml
+.vscode/settings.json
+.vscode/
+.idea/
+.DS_Store
+
+# duckdb
+*.duckdb
