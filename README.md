@@ -16,7 +16,7 @@ A plug-and-play local analytics stack using:
 ### 1. Clone the Project
 
 ```bash
-git clone https://github.com/yourusername/dbt-duckdb-dummy.git
+git clone https://github.com/valdAsync/dbt-duckdb-dummy.git
 cd dbt-duckdb-dummy
 ```
 
