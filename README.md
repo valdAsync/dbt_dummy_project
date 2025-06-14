@@ -32,6 +32,7 @@ This installs:
 - duckdb
 - polars
 - numpy
+- pyarrow
 
 ### 3. Activate Python virtual environment
 
