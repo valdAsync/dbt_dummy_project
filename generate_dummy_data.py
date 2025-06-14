@@ -7,7 +7,6 @@ import polars as pl
 # random seed for reproducibility
 np.random.seed(39)
 
-num_customers = 10_000
 
 # Generate small dimensions table
 num_customers = 10_000
@@ -60,7 +59,7 @@ con.register("temp_fact", fact_purchases)
 
 con.execute(
     """
-    CREATE TABLE raw.dim_customers 
+    CREATE TABLE raw.customers 
     AS 
     SELECT *, current_timestamp::timestamp AS updated_on
     FROM temp_dim;
@@ -68,18 +67,14 @@ con.execute(
 )
 con.execute(
     """
-    CREATE TABLE raw.fact_purchases 
+    CREATE TABLE raw.purchases 
     AS 
     SELECT *, current_timestamp::timestamp AS updated_on
     FROM temp_fact;
     """
 )
 
-print(
-    "Customers:", con.execute("SELECT COUNT(*) FROM raw.dim_customers;").fetchall()[0]
-)
-print(
-    "Purchases:", con.execute("SELECT COUNT(*) FROM raw.fact_purchases;").fetchall()[0]
-)
+print("Customers:", con.execute("SELECT COUNT(*) FROM raw.customers;").fetchall()[0])
+print("Purchases:", con.execute("SELECT COUNT(*) FROM raw.purchases;").fetchall()[0])
 
 con.close()

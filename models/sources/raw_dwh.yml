@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_dwh
+    schema: raw
+    tables:
+      - name: customers
+      - name: purchases
