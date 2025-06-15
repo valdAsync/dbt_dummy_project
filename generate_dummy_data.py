@@ -57,20 +57,37 @@ con.execute("CREATE SCHEMA IF NOT EXISTS analytics;")
 con.register("temp_dim", dim_customers)
 con.register("temp_fact", fact_purchases)
 
+# create raw.customers
 con.execute(
     """
-    CREATE TABLE raw.customers 
-    AS 
+    CREATE TABLE IF NOT EXISTS raw.customers AS 
     SELECT *, current_timestamp::timestamp AS updated_on
-    FROM temp_dim;
+    FROM temp_dim
+    LIMIT 0
     """
 )
 con.execute(
     """
-    CREATE TABLE raw.purchases 
-    AS 
+    INSERT INTO raw.customers 
     SELECT *, current_timestamp::timestamp AS updated_on
-    FROM temp_fact;
+    FROM temp_dim
+    """
+)
+
+# create raw.purchases
+con.execute(
+    """
+    CREATE TABLE IF NOT EXISTS raw.purchases AS 
+    SELECT *, current_timestamp::timestamp AS updated_on 
+    FROM temp_fact
+    LIMIT 0
+    """
+)
+con.execute(
+    """
+    INSERT INTO raw.purchases 
+    SELECT *, current_timestamp::timestamp AS updated_on 
+    FROM temp_fact
     """
 )
 

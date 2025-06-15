@@ -52,8 +52,9 @@ python generate_dummy_data.py
 
 This script creates:
 
-- raw.customers — 10,000 rows of customer data
-- raw.purchases — 10M rows of purchase events
+- raw and analytics schemas
+- raw.customers table — 10,000 rows of customer data
+- raw.purchases table — 10M rows of purchase events
 - Both tables include an updated_on timestamp
 
 ### 5. Update your profiles.yml file
