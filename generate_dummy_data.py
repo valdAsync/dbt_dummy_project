@@ -97,7 +97,7 @@ fact_page_views = pl.DataFrame(
 )
 
 
-con = duckdb.connect("dummy_dwh.duckdb")
+con = duckdb.connect("dbt/dummy_dwh.duckdb")
 con.execute("CREATE SCHEMA IF NOT EXISTS raw;")
 con.execute("CREATE SCHEMA IF NOT EXISTS analytics;")
 

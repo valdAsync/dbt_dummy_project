@@ -6,3 +6,6 @@ sources:
     tables:
       - name: customers
       - name: purchases
+      - name: products
+      - name: locations
+      - name: page_views

@@ -50,7 +50,7 @@ source .venv/bin/activate        # macOS/Linux
 
 ### 4. Generate Dummy Data
 
-Run the script to generate a local DuckDB database (`dummy_dwh.duckdb`) with synthetic tables:
+Run the script to generate a local DuckDB database (`dbt/dummy_dwh.duckdb`) with synthetic tables:
 
 ```bash
 python generate_dummy_data.py
@@ -88,6 +88,7 @@ dbt_dummy_project:
 ### 6. Run dbt Models
 
 ```bash
+cd dbt
 dbt debug        # Check connection
 dbt parse        # Validate project structure
 dbt run          # Run all models
